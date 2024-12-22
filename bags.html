@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrendVault</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary-maroon: #800000;
+      --secondary-maroon: #4a0404;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+   
+    .page-title {
+      color: var(--primary-maroon);
+      text-align: center;
+      margin: 2rem 0;
+      font-weight: 700;
+    }
+
+    .card {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-top {
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .btn-custom {
+      background-color: var(--primary-maroon);
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      background-color: var(--secondary-maroon);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .social-links i {
+      font-size: 1.5rem;
+      margin: 0 10px;
+      color: var(--primary-maroon);
+      transition: transform 0.3s ease;
+    }
+
+    .social-links i:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      background-color: var(--primary-maroon);
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    .cart-badge {
+      position: relative;
+      top: -10px;
+      right: -5px;
+      padding: 3px 6px;
+      border-radius: 50%;
+      background: var(--primary-maroon);
+      color: white;
+    }
+
+    .product-price {
+      color: var(--primary-maroon);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+      <a class="navbar-brand" href="#">TrendVault</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active" href="#" id="collectionsDropdown" role="button" 
+                     data-bs-toggle="dropdown" aria-expanded="false">
+                      Collections
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="collectionsDropdown">
+                      <li><a class="dropdown-item" href="collection.html">All Collections</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="womenfootwear.html">Women's Footwear</a></li>
+                      <li><a class="dropdown-item" href="womenwears.html">Women's Wear</a></li>
+                      <li><a class="dropdown-item" href="menswear.html">Men's Wear</a></li>
+                      <li><a class="dropdown-item" href="menfootwear.html">Men's Footwear</a></li>
+                      <li><a class="dropdown-item" href="bags.html">Bags</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart me-1"></i>Cart</a>
+              </li>
+          </ul>
+          <form class="d-flex">
+              <div class="input-group">
+                  <input class="form-control" type="search" placeholder="Search collections...">
+                  <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
+              </div>
+          </form>
+      </div>
+  </div>
+</nav>
+  <!-- Main Content -->
+  <div class="container py-5">
+    <h1 class="page-title display-4 mb-3">Shop Our Latest Styles</h1>
+    <p class="text-center mb-5 lead">Explore a wide range of premium-quality fashion items curated just for you.</p>
+    
+    <h3 class="page-title mb-4">Woman Bags</h3>
+    
+    <div class="row g-4">
+      <!-- Product 1 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="bag1.jpg" class="card-img-top" alt="White shoulder bag">
+          <div class="card-body text-center">
+            <h5 class="card-title">White Shoulder Bag</h5>
+            <p class="product-price mb-3">$50.00</p>
+            <button class="btn btn-custom w-100 add-to-cart-btn" data-name="White Shoulder Bag" data-price="50" data-image="bag1.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="bag3.jpg" class="card-img-top" alt="Pink Shoulder Bag">
+          <div class="card-body text-center">
+            <h5 class="card-title">Pink Shoulder Bag</h5>
+            <p class="product-price mb-3">$85.00</p>
+            <button class="btn btn-custom w-100 add-to-cart-btn" data-name="Pink Shoulder Bag" data-price="85" data-image="bag3.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="bag8.jpg" class="card-img-top" alt="Brown Crossbody bag">
+          <div class="card-body text-center">
+            <h5 class="card-title">Brown Crossbody bag</h5>
+            <p class="product-price mb-3">$100.00</p>
+            <button class="btn btn-custom w-100 add-to-cart-btn" data-name="Brown Crossbody bag" data-price="100" data-image="bag8.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="bag7.jpg" class="card-img-top" alt="Brown Handle Bag">
+          <div class="card-body text-center">
+            <h5 class="card-title">Brown Handle Bag</h5>
+            <p class="product-price mb-3">$93.00</p>
+            <button class="btn btn-custom w-100 add-to-cart-btn" data-name="Brown Handle Bag" data-price="93" data-image="bag7.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="product 5.jpg" class="card-img-top" alt="Tote Bags">
+          <div class="card-body text-center">
+            <h5 class="card-title">Tote Bag</h5>
+            <p class="product-price mb-3">$55.00</p>
+            <button class="btn btn-custom w-100 add-to-cart-btn" data-name="Tote Bag" data-price="55" data-image="product 5.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="product 6.jpg" class="card-img-top" alt="Beige Crossbody bag">
+          <div class="card-body text-center">
+            <h5 class="card-title">Beige Crossbody bag</h5>
+            <p class="product-price mb-3">$25.00</p>
+            <button class="btn btn-custom w-100 add-to-cart-btn" data-name="Beige Crossbody bag" data-price="25" data-image="product 6.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional products following the same pattern -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="bag6.jpg" class="card-img-top" alt="Maroon Handle Bag">
+          <div class="card-body text-center">
+            <h5 class="card-title">Maroon Handle Bag</h5>
+            <p class="product-price mb-3">$75.00</p>
+            <button class="btn btn-custom w-100 add-to-cart-btn" data-name="Maroon Handle Bag" data-price="75" data-image="bag6.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="bag5.jpg" class="card-img-top" alt="Mini Bag">
+          <div class="card-body text-center">
+            <h5 class="card-title">Mini Bag</h5>
+            <p class="product-price mb-3">$20.00</p>
+            <button class="btn btn-custom w-100 add-to-cart-btn" data-name="Mini Bag" data-price="20" data-image="bag5.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <img src="bag4.jpg" class="card-img-top" alt="Black clutch">
+          <div class="card-body text-center">
+            <h5 class="card-title">Black Clutch</h5>
+            <p class="product-price mb-3">$125.00</p>
+            <button class="btn btn-custom w-100 add-to-cart-btn" data-name="Black Clutch" data-price="125" data-image="bag4.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="modal fade" id="cartModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-maroon text-white" style="background-color: var(--primary-maroon);">
+          <h5 class="modal-title">Your Cart</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="cart-items" class="list-group list-group-flush">
+            <!-- Cart items will be added here dynamically -->
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="checkout-btn" class="btn btn-custom">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <h2 class="mb-4">TrendVault</h2>
+      <div class="social-links mb-4">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-pinterest-p"></i>
+      </div>
+      <p class="mb-2">Designed By <a href="#" class="text-white text-decoration-none">Pakeeza Eman</a></p>
+      <p class="mb-0">&copy; 2024 <strong>TrendVault</strong>. All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+   <!-- Custom JavaScript -->
+   <script>
+    let cart = [];
+
+    // Add to Cart function
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const productName = this.getAttribute('data-name');
+        const productPrice = this.getAttribute('data-price');
+        const productImage = this.getAttribute('data-image');
+        
+        // Add animation effect
+        this.innerHTML = '✓ Added!';
+        setTimeout(() => {
+          this.innerHTML = 'Add to Cart';
+        }, 1000);
+        
+        cart.push({ name: productName, price: productPrice, image: productImage });
+        document.getElementById('cart-count').textContent = cart.length;
+        updateCartModal();
+      });
+    });
+
+    // Update cart modal
+    function updateCartModal() {
+      const cartItemsList = document.getElementById('cart-items');
+      cartItemsList.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+        li.innerHTML = `
+          <div class="d-flex align-items-center">
+            <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 15px;">
+            <div>
+              <h6 class="mb-0">${item.name}</h6>
+              <p class="mb-0">$${item.price}</p>
+            </div>
+          </div>
+          <button class="btn btn-sm btn-danger remove-item" data-index="${index}">
+            <i class="fas fa-trash"></i>
+          </button>
+        `;
+        cartItemsList.appendChild(li);
+        total += Number(item.price);
+      });
+
+      if (cart.length > 0) {
+        const totalLi = document.createElement('li');
+        totalLi.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center', 'fw-bold');
+        totalLi.innerHTML = `
+          <span>Total:</span>
+          <span>$${total.toFixed(2)}</span>
+        `;
+        cartItemsList.appendChild(totalLi);
+      } else {
+        const emptyLi = document.createElement('li');
+        emptyLi.classList.add('list-group-item', 'text-center');
+        emptyLi.innerHTML = 'Your cart is empty';
+        cartItemsList.appendChild(emptyLi);
+      }
+
+      // Add remove functionality
+      document.querySelectorAll('.remove-item').forEach(button => {
+        button.addEventListener('click', function() {
+          const index = this.getAttribute('data-index');
+          cart.splice(index, 1);
+          document.getElementById('cart-count').textContent = cart.length;
+          updateCartModal();
+        });
+      });
+    }
+
+    // Checkout function
+    document.getElementById('checkout-btn').addEventListener('click', function() {
+      if (cart.length === 0) {
+        alert('Your cart is empty!');
+        return;
+      }
+      
+      const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
+      alert(`Proceeding to checkout...\nTotal Amount: $${total.toFixed(2)}`);
+      
+      // Clear cart after checkout
+      cart = [];
+      document.getElementById('cart-count').textContent = '0';
+      updateCartModal();
+      
+      // Close modal
+      const modal = bootstrap.Modal.getInstance(document.getElementById('cartModal'));
+      modal.hide();
+    });
+
+    // Add animation to cards on scroll
+    function animateOnScroll() {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const cardPosition = card.getBoundingClientRect();
+        if (cardPosition.top < window.innerHeight - 100) {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }
+      });
+    }
+
+    // Initialize animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.5s ease-in-out';
+      });
+      animateOnScroll();
+    });
+
+    // Listen for scroll events
+    window.addEventListener('scroll', animateOnScroll);
+  </script>
+</body>
+</html>

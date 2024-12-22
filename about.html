@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About TrendVault</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="nav.css">
+    <style>
+        :root {
+            --primary-color: #800000;
+            --secondary-color: #f8f9fa;
+            --light-color: #fff5f5;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('/card.png') no-repeat center/cover;
+            color: var(--light-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        .hero button {
+            margin-top: 2rem;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            animation: fadeIn 3s ease-in-out;
+            transition: transform 0.3s ease;
+        }
+
+        .hero button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--light-color);
+            padding: 100px 0;
+        }
+
+        .about-heading {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+        }
+
+        .about-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .about-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        [data-aos] {
+            opacity: 0;
+            transition-property: opacity, transform;
+            transition-duration: 1s;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: var(--light-color);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffd700;
+        }
+
+        .credits {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+  
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container">
+      <a class="navbar-brand" href="#">TrendVault</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active" href="#" id="collectionsDropdown" role="button" 
+                     data-bs-toggle="dropdown" aria-expanded="false">
+                      Collections
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="collectionsDropdown">
+                      <li><a class="dropdown-item" href="collection.html">All Collections</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="womenfootwear.html">Women's Footwear</a></li>
+                      <li><a class="dropdown-item" href="womenwears.html">Women's Wear</a></li>
+                      <li><a class="dropdown-item" href="menswear.html">Men's Wear</a></li>
+                      <li><a class="dropdown-item" href="menfootwear.html">Men's Footwear</a></li>
+                      <li><a class="dropdown-item" href="bags.html">Bags</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart me-1"></i>Cart</a>
+              </li>
+          </ul>
+          <form class="d-flex">
+              <div class="input-group">
+                  <input class="form-control" type="search" placeholder="Search collections...">
+                  <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
+              </div>
+          </form>
+      </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+    <!-- Navbar -->
+
+<!-- Hero Section -->
+<section class="hero">
+    <div>
+        <h1>Welcome to TrendVault</h1>
+        <p>Redefining fashion with a blend of elegance and individuality.</p>
+        <button>Discover More</button>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section">
+    <div class="container">
+        <h2 class="about-heading">About Us</h2>
+        <div class="row mt-5 align-items-center">
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="about-image">
+                    <img src="img.png" alt="About TrendVault">
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="about-content">
+                    <p class="lead">TrendVault stands at the crossroads of timeless elegance and modern trends. Our mission is to inspire confidence and individuality through fashion.</p>
+                    <p>From meticulously designed outfits to curated accessories, every piece tells a story of quality and passion. Join us on this journey to discover your unique style.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-logo">TrendVault</div>
+    <div class="social-links">
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-facebook"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+    </div>
+    <div class="credits">&copy; 2024 TrendVault. Designed by <span>SA Coding</span></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+</script>
+
+</body>
+</html>

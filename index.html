@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendVault - Fashion Collection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="nav.css">
+    <style>
+        :root {
+            --primary-color: #800000;
+        }
+
+        
+
+        .collection-section {
+            background-color: #f8f9fa;
+            padding: 100px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 60px;
+            color: #800000;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #800000;
+            margin: 15px auto;
+        }
+
+        .collection-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .collection-image {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .collection-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .collection-card:hover .collection-image img {
+            transform: scale(1.1);
+        }
+
+        .collection-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 30px;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .collection-card:hover .collection-overlay {
+            transform: translateY(0);
+        }
+
+        .collection-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #800000;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        .collection-content {
+            padding: 25px;
+            background: white;
+        }
+
+        .collection-title {
+            font-size: 1.5rem;
+            color: #800000;
+            margin-bottom: 10px;
+        }
+
+        .collection-price {
+            font-size: 1.2rem;
+            color: #800000;
+            font-weight: bold;
+        }
+
+        .collection-description {
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+
+        .btn-shop {
+            background-color: #800000;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-shop:hover {
+            background-color: #600000;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .collection-stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: #800000;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .bg-maroon {
+            background-color: var(--primary-color);
+        }
+        
+        .text-maroon {
+            color: var(--primary-color);
+        }
+        
+        .btn-maroon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-maroon:hover {
+            background-color: #600000;
+            color: white;
+        }
+        
+        .collection-item img {
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .footer-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">TrendVault</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="collectionsDropdown" role="button" 
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Collections
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="collectionsDropdown">
+                        <li><a class="dropdown-item" href="collection.html">All Collections</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="womenfootwear.html">Women's Footwear</a></li>
+                        <li><a class="dropdown-item" href="womenwears.html">Women's Wear</a></li>
+                        <li><a class="dropdown-item" href="menswear.html">Men's Wear</a></li>
+                        <li><a class="dropdown-item" href="menfootwear.html">Men's Footwear</a></li>
+                        <li><a class="dropdown-item" href="bags.html">Bags</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart me-1"></i>Cart</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Search collections...">
+                    <button class="btn btn-light" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+    <!-- Navbar -->
+
+
+
+
+    <!-- Hero Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center min-vh-75">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold text-maroon mb-4">Discover Your Style Journey</h1>
+                    <p class="lead mb-4">Find your perfect style with our exclusive collection of premium fashion pieces designed for the modern trendsetter.</p>
+                    <button class="btn btn-maroon btn-lg px-4 rounded-pill">Shop Now</button>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="/img.png" alt="Fashion Collection" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    
+<section class="collection-section">
+  <div class="container">
+      <h2 class="text-center section-title" data-aos="fade-up">Our Exclusive Collection</h2>
+      <div class="row">
+          <!-- Women's Collection -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="collection-card shadow">
+                  <div class="collection-image">
+                      <span class="collection-badge">New Arrival</span>
+                      <img src="/pro6.jpg" alt="Women's Collection">
+                      <div class="collection-overlay">
+                          <h4>Trending Styles</h4>
+                          <p>Discover our latest women's fashion collection</p>
+                      </div>
+                  </div>
+                  <div class="collection-content">
+                      <h3 class="collection-title">Women's Collection</h3>
+                      <p class="collection-description">Elegant designs for the modern woman</p>
+                      <div class="collection-stats">
+                          <div class="stat-item">
+                              <div class="stat-value">250+</div>
+                              <div class="stat-label">Items</div>
+                          </div>
+                          <div class="stat-item">
+                              <div class="stat-value">4.8</div>
+                              <div class="stat-label">Rating</div>
+                          </div>
+                          <div class="stat-item">
+                              <div class="stat-value">15%</div>
+                              <div class="stat-label">Off</div>
+                          </div>
+                      </div>
+                      <a href="#" class="btn-shop mt-3">
+                          Shop Now <i class="fas fa-arrow-right ms-2"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Men's Collection -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="collection-card shadow">
+                  <div class="collection-image">
+                      <span class="collection-badge">Best Seller</span>
+                      <img src="/men10.jpg" alt="Men's Collection">
+                      <div class="collection-overlay">
+                          <h4>Premium Selection</h4>
+                          <p>Explore our curated men's fashion line</p>
+                      </div>
+                  </div>
+                  <div class="collection-content">
+                      <h3 class="collection-title">Men's Collection</h3>
+                      <p class="collection-description">Contemporary styles for modern men</p>
+                      <div class="collection-stats">
+                          <div class="stat-item">
+                              <div class="stat-value">200+</div>
+                              <div class="stat-label">Items</div>
+                          </div>
+                          <div class="stat-item">
+                              <div class="stat-value">4.9</div>
+                              <div class="stat-label">Rating</div>
+                          </div>
+                          <div class="stat-item">
+                              <div class="stat-value">20%</div>
+                              <div class="stat-label">Off</div>
+                          </div>
+                      </div>
+                      <a href="#" class="btn-shop mt-3">
+                          Shop Now <i class="fas fa-arrow-right ms-2"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Accessories -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="collection-card shadow">
+                  <div class="collection-image">
+                      <span class="collection-badge">Trending</span>
+                      <img src="/menfoot1.jpg" alt="Accessories">
+                      <div class="collection-overlay">
+                          <h4>Complete Your Look</h4>
+                          <p>Find the perfect accessories to match your style</p>
+                      </div>
+                  </div>
+                  <div class="collection-content">
+                      <h3 class="collection-title">Accessories</h3>
+                      <p class="collection-description">Elevate your style with our accessories</p>
+                      <div class="collection-stats">
+                          <div class="stat-item">
+                              <div class="stat-value">150+</div>
+                              <div class="stat-label">Items</div>
+                          </div>
+                          <div class="stat-item">
+                              <div class="stat-value">4.7</div>
+                              <div class="stat-label">Rating</div>
+                          </div>
+                          <div class="stat-item">
+                              <div class="stat-value">25%</div>
+                              <div class="stat-label">Off</div>
+                          </div>
+                      </div>
+                      <a href="#" class="btn-shop mt-3">
+                          Shop Now <i class="fas fa-arrow-right ms-2"></i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+    <!-- About Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="/img.png" alt="About Us" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h2 class="text-maroon mb-4">Our Story</h2>
+                    <p class="lead mb-4">At TrendVault, we believe in the power of style to transform and inspire. Our carefully curated collections blend timeless elegance with contemporary trends.</p>
+                    <p class="mb-4">Each piece in our collection is selected with attention to quality, design, and versatility, ensuring that you find the perfect addition to your wardrobe.</p>
+                    <button class="btn btn-maroon rounded-pill px-4">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="text-maroon mb-4">Get in Touch</h2>
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control form-control-lg" placeholder="Your Name">
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" class="form-control form-control-lg" placeholder="Your Email">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control form-control-lg" rows="4" placeholder="Your Message"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-maroon btn-lg rounded-pill w-100">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="card bg-maroon text-white border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h2 class="mb-4">Contact Information</h2>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-map-marker-alt fa-fw fa-lg me-3"></i>
+                                <p class="mb-0">Islamabad, Pakistan</p>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-phone fa-fw fa-lg me-3"></i>
+                                <p class="mb-0">+92 000 000 0000</p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-envelope fa-fw fa-lg me-3"></i>
+                                <p class="mb-0">contact@trendvault.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 text-center text-lg-start">
+                    <h3 class="h4 mb-4">TrendVault</h3>
+                    <p class="mb-0">Your destination for premium fashion and style.</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <h4 class="h5 mb-4">Quick Links</h4>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="#" class="text-white text-decoration-none">Home</a>
+                        <a href="#" class="text-white text-decoration-none">Collection</a>
+                        <a href="#" class="text-white text-decoration-none">About Us</a>
+                        <a href="#" class="text-white text-decoration-none">Contact</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <h4 class="h5 mb-4">Connect With Us</h4>
+                    <div>
+                        <a href="#" class="footer-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="footer-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="footer-icon"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 TrendVault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>
